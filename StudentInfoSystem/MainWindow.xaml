@@ -1,0 +1,140 @@
+﻿<Window x:Class="StudentInfoSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentInfoSystem"
+        xmlns:ViewModel="clr-namespace:StudentInfoSystem"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="MainGrid">
+        <GroupBox Name="PersonalInfo" Header="Лични данни" HorizontalAlignment="Left" Height="115" Margin="10,10,0,0" VerticalAlignment="Top" Width="497">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <Label x:Name="name" Content="Име:" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtName" Margin="70,10,0,0"
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap"  
+							 Height="23" Width="200"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.Name}"-->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <Label x:Name="middleName" Content="Презиме:" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtMName"  Margin="44,0,0,0"
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap" 
+							 Height="23" Width="200"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.MiddleName}"-->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2">
+                    <Label x:Name="lastName" Content="Фамилия:" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtLName" Margin="44,0,0,0" 
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap"
+							 Height="23" Width="200"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.LastName}"-->
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Name="StudentInfo" Header="Студентска информация" HorizontalAlignment="Left" Height="170" Margin="10,129,0,0" VerticalAlignment="Top" Width="497">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="Faculty" Content="Факултет:" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtFac" Margin="40,10,0,0"
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap" 
+							 Height="23" Width="200"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.Faculty}"-->
+                    <Label x:Name="Course" Content="Курс:" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtCourse" Margin="15,10,0,0"  
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap"
+							 Height="23" Width="75"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.Course}"-->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="specialty" Content="Специалност:" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtSpec" Margin="18,0,0,0" 
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap" 
+							 Height="23"  Width="200"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.Specialty}"-->
+                    <Label x:Name="Potok" Content="Поток" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtPotok" Margin="9,0,0,0"  
+							 HorizontalAlignment="Left" VerticalAlignment="Top" 
+							 TextWrapping="Wrap"
+							 Height="23" Width="75"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.Potok}"-->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="OKS" Content="ОКС:" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtOKS" Margin="66,0,0,0" 
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap" 
+							 Height="23" Width="200"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.OKS}"-->
+                    <Label x:Name="Group" Content="Група:" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtGroup" Margin="9,0,0,0"
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap"
+							 Height="23" Width="75"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.Group}"-->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="Status" Content="Статус:" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="txtStatus" Margin="55,0,0,0"
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 Height="23" Width="200" >
+
+                    </ComboBox>
+                    <!--ItemsSource="{Binding StudStatusChoices}"/>-->
+                    <!--Text="{Binding Student.Status}"
+								IsEnabled="{Binding CanEdit}"-->
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="FacNum" Content="Фак. номер:" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtFNum" Margin="27,0,0,0"
+							 HorizontalAlignment="Left" VerticalAlignment="Top"
+							 TextWrapping="Wrap"
+							 Height="23" Width="200"
+							 IsEnabled="{Binding CanEdit}"/>
+                    <!--Text="{Binding Student.FacultyNum}"-->
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <Button x:Name="clear" Content="Изчистване" 
+				Margin="0,64,92,0" Width="78"
+				HorizontalAlignment="Right" VerticalAlignment="Top"  
+				Command="{Binding ClearAllDataCommand}"/>
+        <Button x:Name="Lock" Content="Заключване" 
+				Margin="0,64,12,0" Width="78"
+				HorizontalAlignment="Right" VerticalAlignment="Top"  
+				Command="{Binding DisableEditingCommand}" />
+        <Button x:Name="Unlock" Content="Отключване" 
+				Margin="0,91,12,0" Width="78" 
+				HorizontalAlignment="Right" VerticalAlignment="Top" 
+				Command="{Binding EnableEditingCommand}"/>
+        <Button x:Name="Student" Content="Попълване" 
+				Margin="0,91,92,0" Width="78"
+				HorizontalAlignment="Right" VerticalAlignment="Top"
+				Command="{Binding ShowStudentDataCommand}"/>
+
+        <Button x:Name="IsEmpty" Content="Is Empty" 
+				Margin="0,37,100,0" Width="62"
+				HorizontalAlignment="Right" VerticalAlignment="Top" 
+				Click="IsEmptySt_Click"/>
+        <!--<Button x:Name="Fill" Content="Попълни" HorizontalAlignment="Right" Margin="0,64,100,0" VerticalAlignment="Top" Width="62" 
+				Click="Fill_Click"/>-->
+
+    </Grid>
+</Window>
